@@ -1,0 +1,30 @@
+---
+import { Image } from "astro:assets";
+
+const nav = [
+    { href: "/", label: "Home" },
+    { href: "/services", label: "Services" },
+    { href: "/process", label: "Process" },
+    { href: "/contact", label: "Contact" },
+];
+---
+
+<header class="site-header">
+    <div class="container nav">
+        <a class="brand" href="/" aria-label="Stratton Digital Systems">
+            <Image
+                src="/brand/sds-logo.webp"
+                alt="Stratton Digital Systems"
+                class="logo"
+                width={180}
+                height={48}
+                loading="eager"
+            />
+        </a>
+
+        <nav class="navlinks" aria-label="Primary navigation">
+            {nav.map((item) => <a href={item.href}>{item.label}</a>)}
+            <a class="btn btn--primary nav-cta" href="/contact">Free Review</a>
+        </nav>
+    </div>
+</header>

@@ -1,0 +1,176 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+    title="Contact | Stratton Digital Systems"
+    description="Request a free website review. Tell us what you do, what you need, and the best way to reach you."
+    pageClass="page-contact"
+>
+    <!-- HERO -->
+    <section class="section">
+        <div class="container">
+            <h1>Request a free website review.</h1>
+            <p>
+                Tell us a little about your business and what you need. We’ll
+                review your current site (if you have one) and respond with
+                clear next steps. No pressure.
+            </p>
+        </div>
+    </section>
+
+    <!-- FORM -->
+    <section class="section section--soft">
+        <div class="container grid grid--2">
+            <div class="card">
+                <h2>Contact form</h2>
+                <p class="small">
+                    Preferred: include your website link (if you have one). The
+                    more context you give, the better the review.
+                </p>
+
+                <!-- Replace action with your form endpoint (Formspree, Basin, Netlify Forms, etc.) -->
+                <form
+                    class="form"
+                    method="POST"
+                    action="https://formspree.io/f/mvzzbkng"
+                >
+                    <!-- Formspree config -->
+                    <input
+                        type="hidden"
+                        name="_subject"
+                        value="New SDS Website Review Request"
+                    />
+                    <input type="hidden" name="_next" value="/thanks" />
+                    <input
+                        type="hidden"
+                        name="source"
+                        value="strattondigitalsystems.com/contact"
+                    />
+
+                    <!-- Honeypot -->
+                    <label class="hp">
+                        <span>Don’t fill this out</span>
+                        <input
+                            name="_gotcha"
+                            type="text"
+                            tabindex="-1"
+                            autocomplete="off"
+                        />
+                    </label>
+
+                    <label class="field">
+                        <span>Full name</span>
+                        <input
+                            name="name"
+                            type="text"
+                            autocomplete="name"
+                            required
+                        />
+                    </label>
+
+                    <label class="field">
+                        <span>Business name</span>
+                        <input
+                            name="business"
+                            type="text"
+                            autocomplete="organization"
+                        />
+                    </label>
+
+                    <label class="field">
+                        <span>Email</span>
+                        <input
+                            name="email"
+                            type="email"
+                            autocomplete="email"
+                            required
+                        />
+                    </label>
+
+                    <label class="field">
+                        <span>Phone (optional)</span>
+                        <input name="phone" type="tel" autocomplete="tel" />
+                    </label>
+
+                    <label class="field">
+                        <span>Website (optional)</span>
+                        <input
+                            name="website"
+                            type="url"
+                            placeholder="https://…"
+                        />
+                    </label>
+
+                    <label class="field">
+                        <span>What do you need help with?</span>
+                        <textarea
+                            name="message"
+                            rows="6"
+                            required
+                            placeholder="Example: We want more calls, our site is outdated, mobile looks off, contact form issues, new build, etc."
+                        ></textarea>
+                    </label>
+
+                    <label class="field field--check">
+                        <input name="consent" type="checkbox" required />
+                        <span>I agree to be contacted about this request.</span>
+                    </label>
+
+                    <div class="btnrow">
+                        <button class="btn btn--primary" type="submit"
+                            >Send Request</button
+                        >
+                        <a class="btn" href="/services">View Services</a>
+                    </div>
+
+                    <p class="small" style="margin-top:.75rem;">
+                        By submitting, you confirm the information is accurate.
+                        We do not share your information.
+                    </p>
+                </form>
+            </div>
+
+            <div class="card">
+                <h2>What happens next</h2>
+                <ul>
+                    <li>
+                        We review your website (or your request if you don’t
+                        have one yet)
+                    </li>
+                    <li>
+                        We respond with a short summary and recommended next
+                        steps
+                    </li>
+                    <li>If it’s a fit, we schedule a quick scope call</li>
+                </ul>
+
+                <div class="hr"></div>
+
+                <h3>Prefer email?</h3>
+                <p class="small">
+                    You can email us directly and include your website link and
+                    what you’re trying to improve.
+                </p>
+
+                <!-- Replace with your real email -->
+                <p style="margin:0;">
+                    <a
+                        class="btn"
+                        href="mailto:chase@strattondigitalsystems.com"
+                        >chase@strattondigitalsystems.com</a
+                    >
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <script is:inline>
+        const form = document.querySelector("form.form");
+        if (form) {
+            form.addEventListener("submit", () => {
+                setTimeout(() => form.reset(), 50);
+            });
+        }
+    </script>
+</BaseLayout>
