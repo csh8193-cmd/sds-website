@@ -203,14 +203,16 @@ h3 {
 }
 
 .logo {
-    width: 300px;
     display: block;
-    image-rendering: -webkit-optimize-contrast;
+    height: 44px;
+    /* desktop */
+    width: auto;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 720px) {
     .logo {
-        width: 150px;
+        height: 36px;
+        /* mobile */
     }
 }
 
