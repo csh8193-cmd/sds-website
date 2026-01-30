@@ -12,19 +12,40 @@ const nav = [
 <header class="site-header">
     <div class="container nav">
         <a class="brand" href="/" aria-label="Stratton Digital Systems">
-            <Image
+            <img
                 src="/brand/sds-logo.webp"
-                alt="Stratton Digital Systems"
-                class="logo"
-                width={180}
-                height={48}
-                loading="eager"
+                alt="SDS Stratton Digital Systems"
             />
         </a>
 
-        <nav class="navlinks" aria-label="Primary navigation">
-            {nav.map((item) => <a href={item.href}>{item.label}</a>)}
-            <a class="btn btn--primary nav-cta" href="/contact">Free Review</a>
+        <!-- Desktop nav -->
+        <nav class="navlinks navlinks--desktop" aria-label="Primary">
+            <a href="/">Home</a>
+            <a href="/services">Services</a>
+            <a href="/process">Process</a>
+            <a href="/contact">Contact</a>
         </nav>
+
+        <!-- Desktop CTA -->
+        <div class="nav-cta nav-cta--desktop">
+            <a class="btn btn-primary" href="/contact">Free Review</a>
+        </div>
+
+        <!-- Mobile menu (no JS) -->
+        <details class="navmenu">
+            <summary class="navmenu__btn" aria-label="Open menu">
+                <span></span><span></span><span></span>
+            </summary>
+
+            <nav class="navmenu__panel" aria-label="Mobile">
+                <a href="/">Home</a>
+                <a href="/services">Services</a>
+                <a href="/process">Process</a>
+                <a href="/contact">Contact</a>
+                <a class="btn btn-primary navmenu__cta" href="/contact"
+                    >Free Review</a
+                >
+            </nav>
+        </details>
     </div>
 </header>

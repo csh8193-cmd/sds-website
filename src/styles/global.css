@@ -255,41 +255,99 @@ h3 {
     justify-content: center;
 }
 
-/* Mobile header: prevent overflow + keep CTA visible */
-.nav {
-    flex-wrap: wrap;
-    gap: .6rem;
+/* ---------------- Mobile nav (no JS) ---------------- */
+
+/* Desktop default */
+.navlinks--desktop,
+.nav-cta--desktop {
+    display: flex;
 }
 
-/* Give the header content real side padding on mobile */
+.navmenu {
+    display: none;
+    position: relative;
+}
+
+/* Hamburger button */
+.navmenu__btn {
+    list-style: none;
+    cursor: pointer;
+    border: 1px solid rgba(15, 23, 42, 0.15);
+    background: #fff;
+    border-radius: 12px;
+    padding: 10px;
+    display: grid;
+    gap: 5px;
+    width: 44px;
+    height: 44px;
+    align-content: center;
+}
+
+.navmenu__btn::-webkit-details-marker {
+    display: none;
+}
+
+.navmenu__btn span {
+    display: block;
+    height: 2px;
+    width: 20px;
+    background: rgba(15, 23, 42, 0.85);
+    border-radius: 99px;
+}
+
+/* Dropdown panel */
+.navmenu__panel {
+    position: absolute;
+    right: 0;
+    top: calc(100% + 10px);
+    width: min(260px, 88vw);
+    background: #fff;
+    border: 1px solid rgba(15, 23, 42, 0.12);
+    border-radius: 16px;
+    box-shadow: 0 18px 50px rgba(15, 23, 42, 0.14);
+    padding: 10px;
+    display: grid;
+    gap: 8px;
+    z-index: 100;
+}
+
+.navmenu__panel a {
+    padding: 10px 10px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: inherit;
+}
+
+.navmenu__panel a:hover {
+    background: rgba(37, 99, 235, 0.08);
+}
+
+.navmenu__cta {
+    margin-top: 6px;
+    text-align: center;
+}
+
+/* Mobile breakpoint */
 @media (max-width: 720px) {
+
+    .navlinks--desktop,
+    .nav-cta--desktop {
+        display: none;
+    }
+
+    .navmenu {
+        display: block;
+    }
+
     .nav {
-        padding-left: calc(1rem + env(safe-area-inset-left));
-        padding-right: calc(1rem + env(safe-area-inset-right));
-    }
-
-    /* Make nav links take full row below logo */
-    .navlinks {
-        width: 100%;
-        order: 3;
+        display: flex;
+        align-items: center;
         justify-content: space-between;
-        gap: .25rem;
-        flex-wrap: wrap;
-    }
+        gap: 10px;
 
-    .navlinks a {
-        padding: .4rem .45rem;
-    }
-
-    /* Keep CTA on the top row, never clipped */
-    .nav-cta {
-        order: 2;
-        margin-left: auto;
-    }
-
-    .nav-cta .btn {
-        white-space: nowrap;
-        padding: .65rem .85rem;
+        /* avoid right-edge clipping on some phones */
+        padding-right: calc(1rem + env(safe-area-inset-right));
+        padding-left: calc(1rem + env(safe-area-inset-left));
     }
 }
 
