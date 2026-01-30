@@ -204,7 +204,7 @@ h3 {
 
 .logo {
     display: block;
-    height: 44px;
+    height: 86px;
     /* desktop */
     width: auto;
 }
@@ -241,6 +241,7 @@ h3 {
 .nav-cta {
     margin-left: .25rem;
 }
+
 
 /* CTA block */
 .cta {
