@@ -4,7 +4,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
 <BaseLayout
     title="Contact | Stratton Digital Systems"
-    description="Request a free website review. Tell us what you do, what you need, and the best way to reach you."
+    description="Request a free website review. We identify lead-loss issues and outline clear next steps."
     pageClass="page-contact"
 >
     <!-- HERO -->
@@ -12,9 +12,9 @@ import BaseLayout from "../layouts/BaseLayout.astro";
         <div class="container">
             <h1>Request a free website review.</h1>
             <p>
-                Tell us a little about your business and what you need. We’ll
-                review your current site (if you have one) and respond with
-                clear next steps. No pressure.
+                Tell us about your business and what you are trying to improve.
+                We will review your current site, identify friction points, and
+                respond with clear next steps.
             </p>
         </div>
     </section>
@@ -25,17 +25,15 @@ import BaseLayout from "../layouts/BaseLayout.astro";
             <div class="card">
                 <h2>Contact form</h2>
                 <p class="small">
-                    Preferred: include your website link (if you have one). The
-                    more context you give, the better the review.
+                    Include your website link if you have one. The more context
+                    you provide, the more precise the review.
                 </p>
 
-                <!-- Replace action with your form endpoint (Formspree, Basin, Netlify Forms, etc.) -->
                 <form
                     class="form"
                     method="POST"
                     action="https://formspree.io/f/mvzzbkng"
                 >
-                    <!-- Formspree config -->
                     <input
                         type="hidden"
                         name="_subject"
@@ -48,7 +46,6 @@ import BaseLayout from "../layouts/BaseLayout.astro";
                         value="strattondigitalsystems.com/contact"
                     />
 
-                    <!-- Honeypot -->
                     <label class="hp">
                         <span>Don’t fill this out</span>
                         <input
@@ -103,12 +100,12 @@ import BaseLayout from "../layouts/BaseLayout.astro";
                     </label>
 
                     <label class="field">
-                        <span>What do you need help with?</span>
+                        <span>What are you trying to improve?</span>
                         <textarea
                             name="message"
                             rows="6"
                             required
-                            placeholder="Example: We want more calls, our site is outdated, mobile looks off, contact form issues, new build, etc."
+                            placeholder="Example: We want more calls, mobile layout issues, slow load times, broken forms, new build, etc."
                         ></textarea>
                     </label>
 
@@ -118,15 +115,15 @@ import BaseLayout from "../layouts/BaseLayout.astro";
                     </label>
 
                     <div class="btnrow">
-                        <button class="btn btn--primary" type="submit"
-                            >Send Request</button
-                        >
+                        <button class="btn btn--primary" type="submit">
+                            Send Request
+                        </button>
                         <a class="btn" href="/services">View Services</a>
                     </div>
 
                     <p class="small" style="margin-top:.75rem;">
-                        By submitting, you confirm the information is accurate.
-                        We do not share your information.
+                        We do not share your information. We use it only to
+                        respond to your request.
                     </p>
                 </form>
             </div>
@@ -135,31 +132,29 @@ import BaseLayout from "../layouts/BaseLayout.astro";
                 <h2>What happens next</h2>
                 <ul>
                     <li>
-                        We review your website (or your request if you don’t
-                        have one yet)
+                        We review your site or request within 1–2 business days
                     </li>
                     <li>
-                        We respond with a short summary and recommended next
-                        steps
+                        You receive a short summary outlining specific issues
+                        and recommended next steps
                     </li>
-                    <li>If it’s a fit, we schedule a quick scope call</li>
+                    <li>If it makes sense, we schedule a brief scope call</li>
                 </ul>
 
                 <div class="hr"></div>
 
                 <h3>Prefer email?</h3>
                 <p class="small">
-                    You can email us directly and include your website link and
-                    what you’re trying to improve.
+                    Send your website link and what you want to improve.
                 </p>
 
-                <!-- Replace with your real email -->
                 <p style="margin:0;">
                     <a
                         class="btn"
                         href="mailto:chase@strattondigitalsystems.com"
-                        >chase@strattondigitalsystems.com</a
                     >
+                        chase@strattondigitalsystems.com
+                    </a>
                 </p>
             </div>
         </div>

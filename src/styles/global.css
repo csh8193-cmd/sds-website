@@ -493,50 +493,126 @@ h3 {
     margin-right: auto;
 }
 
-/* Process */
-.timeline {
+.centered-copy {
+    text-align: center;
+    max-width: 100ch;
+    margin: 0 auto;
+}
+
+.centered-copy p {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ================================
+   PROCESS PAGE – AUTHORITY STYLE
+   ================================ */
+
+.page-process .timeline {
     display: grid;
     gap: 2.5rem;
-}
-
-.step {
-    display: grid;
-    grid-template-columns: 48px 1fr;
-    gap: 1.5rem;
-    align-items: flex-start;
-}
-
-.step-badge {
-    width: 48px;
-    height: 48px;
-    border-radius: 14px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 700;
-    background: rgba(20, 184, 166, .14);
-    border: 1px solid rgba(20, 184, 166, .25);
-    color: var(--text);
-}
-
-.page-process .step-badge {
-    background: rgba(37, 99, 235, .14);
-    border-color: rgba(37, 99, 235, .25);
-}
-
-.step h3 {
+    padding-top: 0;
     margin-top: 0;
 }
 
-.step ul {
-    margin-top: .75rem;
-    font-size: .95rem;
+/* Each step becomes a framed block */
+.page-process .step {
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    gap: 1.25rem;
+    align-items: start;
+    /*was center*/
+
+    position: relative;
+    padding: 2rem;
+    /* <- was 2rem 2rem 2rem 2.5rem */
+    background: #ffffff;
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    border-radius: 14px;
+    box-shadow:
+        0 2px 6px rgba(15, 23, 42, 0.04),
+        0 12px 28px rgba(15, 23, 42, 0.06);
+}
+
+.page-process .step>div:last-child> :first-child {
+    margin-top: 0;
+}
+
+.page-process .timeline>.step:first-child {
+    margin-top: 0;
+}
+
+.page-process .step h3 {
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+}
+
+.page-process .step p {
+    margin-top: 0.5rem;
+}
+
+/* Left accent bar */
+.page-process .step::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 5px;
+    background: linear-gradient(to bottom, #2563eb, rgba(37, 99, 235, 0.4));
+    border-top-left-radius: 14px;
+    border-bottom-left-radius: 14px;
+}
+
+/* Big anchor number */
+.page-process .step-badge {
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+
+    width: auto;
+    height: auto;
+    padding: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    /* centers only the number */
+
+    font-size: 4rem;
+    line-height: 1;
+    font-weight: 800;
+    color: rgba(15, 23, 42, 0.16);
+}
+
+/* Typography spacing inside the step */
+.page-process .step h3 {
+    margin: 0 0 0.75rem 0;
+}
+
+.page-process .step ul {
+    margin-top: 0.75rem;
+    font-size: 0.95rem;
     color: var(--muted);
 }
 
-.step+.step {
-    padding-top: 1.25rem;
-    border-top: 1px solid var(--line);
+page-process .step>div:last-child {
+    align-self: start;
+}
+
+/* Mobile layout */
+@media (max-width: 640px) {
+    .page-process .step {
+        grid-template-columns: 1fr;
+        align-items: start;
+    }
+
+    .page-process .step-badge {
+        justify-content: flex-start;
+        font-size: 2.5rem;
+        margin-bottom: 0.25rem;
+    }
 }
 
 /* Forms */
@@ -614,4 +690,255 @@ textarea {
     background:
         radial-gradient(900px 520px at 30% 10%, rgba(15, 23, 42, .06), transparent 62%),
         radial-gradient(900px 520px at 75% 10%, rgba(37, 99, 235, .10), transparent 62%);
+}
+
+/* ================================
+   FRICTION SNAPSHOT (Homepage)
+   Add to your global stylesheet (e.g., src/styles/global.css)
+   ================================ */
+
+.snapshot {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.snapshot__head {
+    max-width: 70ch;
+    margin-bottom: 1.25rem;
+}
+
+.snapshot__sub {
+    margin-top: 0.5rem;
+}
+
+.snapshot__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.snapshot__panel {
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    border-radius: 14px;
+    padding: 1.25rem;
+    background: #ffffff;
+    box-shadow:
+        0 1px 2px rgba(15, 23, 42, 0.04),
+        0 8px 24px rgba(15, 23, 42, 0.06);
+}
+
+.snapshot__label {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+}
+
+.snapshot__tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.6rem;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    letter-spacing: 0.2px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.snapshot__hint {
+    opacity: 0.75;
+    font-size: 0.9rem;
+}
+
+.snapshot__list {
+    list-style: none;
+    padding: 0;
+    margin: 0.75rem 0 1rem 0;
+    display: grid;
+    gap: 0.6rem;
+}
+
+.snapshot__item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    line-height: 1.35;
+}
+
+.snapshot__icon {
+    flex: 0 0 auto;
+    width: 18px;
+    height: 18px;
+    margin-top: 2px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    background: rgba(255, 255, 255, 0.06);
+    position: relative;
+}
+
+.snapshot__icon--ok::after,
+.snapshot__icon--warn::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    width: 10px;
+    height: 10px;
+    border-radius: 999px;
+    opacity: 0.9;
+}
+
+/* Keep accents subtle. These are intentionally muted. */
+.snapshot__panel--before .snapshot__tag {
+    border-color: rgba(255, 120, 120, 0.28);
+    background: rgba(255, 120, 120, 0.08);
+}
+
+.snapshot__panel--before .snapshot__icon--warn::after {
+    background: rgba(255, 120, 120, 0.85);
+}
+
+.snapshot__panel--after .snapshot__tag {
+    border-color: rgba(120, 255, 180, 0.28);
+    background: rgba(120, 255, 180, 0.08);
+}
+
+.snapshot__panel--after .snapshot__icon--ok::after {
+    background: rgba(120, 255, 180, 0.85);
+}
+
+.snapshot__meta {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.75rem;
+    padding-top: 0.9rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.10);
+}
+
+.snapshot__metric {
+    display: grid;
+    gap: 0.15rem;
+}
+
+.snapshot__metricLabel {
+    font-size: 0.85rem;
+    opacity: 0.75;
+}
+
+.snapshot__metricValue {
+    font-weight: 700;
+    letter-spacing: 0.2px;
+}
+
+.snapshot__foot {
+    margin-top: 1.25rem;
+    padding-top: 1.1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.10);
+}
+
+.snapshot__note {
+    max-width: 70ch;
+    margin: 0 0 0.9rem 0;
+    opacity: 0.9;
+}
+
+/* Responsive: side-by-side panels on larger screens */
+@media (min-width: 860px) {
+    .snapshot__grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 1.25rem;
+        align-items: stretch;
+    }
+
+    .snapshot__panel {
+        padding: 1.4rem;
+    }
+}
+
+/* Optional: if your global .section--soft has a background,
+   this adds subtle separation without new colors */
+@media (prefers-reduced-motion: no-preference) {
+    .snapshot__panel {
+        transition: transform 140ms ease, border-color 140ms ease;
+    }
+
+    .snapshot__panel:hover {
+        transform: translateY(-2px);
+        border-color: rgba(255, 255, 255, 0.18);
+    }
+}
+
+/* ================================
+   SNAPSHOT BACKGROUND GRID
+   ================================ */
+
+.snapshot-section {
+    position: relative;
+    overflow: hidden;
+}
+
+.snapshot-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+
+    /* Subtle grid pattern */
+    background-image:
+        linear-gradient(to right, rgba(15, 23, 42, 0.025) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(15, 23, 42, 0.025) 1px, transparent 1px);
+
+    background-size: 40px 40px;
+
+    pointer-events: none;
+}
+
+/* Ensure content sits above grid */
+.snapshot-section .container {
+    position: relative;
+    z-index: 1;
+}
+
+/* ================================
+   DIAGNOSTIC OVERLAY EFFECT
+   ================================ */
+
+.snapshot__panel {
+    position: relative;
+    overflow: hidden;
+}
+
+.snapshot__panel::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 160ms ease;
+
+    background:
+        repeating-linear-gradient(45deg,
+            rgba(15, 23, 42, 0.03),
+            rgba(15, 23, 42, 0.03) 2px,
+            transparent 2px,
+            transparent 8px);
+}
+
+.snapshot__panel:hover::after {
+    opacity: 1;
+}
+
+.snapshot__panel:hover {
+    border-color: rgba(15, 23, 42, 0.18);
+}
+
+.section--problem h2 {
+    margin-bottom: 1.75rem;
+}
+
+.section--problem p {
+    margin-bottom: 1rem;
 }
