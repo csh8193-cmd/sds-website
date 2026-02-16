@@ -27,10 +27,9 @@ const {
         <script is:inline>
             window.dataLayer = window.dataLayer || [];
             function gtag() {
-                dataLayer.push(arguments);
+                window.dataLayer.push(arguments);
             }
             gtag("js", new Date());
-
             gtag("config", "G-3Q4NZB9PPR");
         </script>
 
@@ -72,5 +71,28 @@ const {
             <slot />
         </main>
         <Footer />
+
+        <!-- Global tracking: any click that leads to contact -->
+        <script is:inline>
+            document.addEventListener("click", (e) => {
+                const el = e.target?.closest?.("a, button");
+                if (!el) return;
+
+                const href = el.getAttribute?.("href") || "";
+
+                const isContactIntent =
+                    href === "/contact" ||
+                    href.startsWith("/contact#") ||
+                    href === "#contact" ||
+                    href.includes("#contact");
+
+                if (isContactIntent && typeof gtag === "function") {
+                    gtag("event", "contact_click", {
+                        link_url: href || "(button)",
+                        link_text: (el.textContent || "").trim().slice(0, 60),
+                    });
+                }
+            });
+        </script>
     </body>
 </html>
