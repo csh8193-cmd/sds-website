@@ -33,6 +33,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
                     class="form"
                     method="POST"
                     action="https://formspree.io/f/mvzzbkng"
+                    onsubmit="gtag('event','form_submit');"
                 >
                     <input
                         type="hidden"
@@ -159,13 +160,4 @@ import BaseLayout from "../layouts/BaseLayout.astro";
             </div>
         </div>
     </section>
-
-    <script is:inline>
-        const form = document.querySelector("form.form");
-        if (form) {
-            form.addEventListener("submit", () => {
-                setTimeout(() => form.reset(), 50);
-            });
-        }
-    </script>
 </BaseLayout>
